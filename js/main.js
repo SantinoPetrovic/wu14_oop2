@@ -174,68 +174,68 @@ $(function(){
                 }
             });
             //Checking if you've choosen a card.
-            if(carryChallenge !== undefined) {
+            // if(carryChallenge !== undefined) {
                 
 
                 //This is all the names from all the equipment-classes inside an array.
-                var equipments = Array(
-                    "axe",
-                    "mysticGlove",
-                    "staff",
-                    "totem",
-                    "bow"
-                );
+                // var equipments = Array(
+                //     "axe",
+                //     "mysticGlove",
+                //     "staff",
+                //     "totem",
+                //     "bow"
+                // );
                 //This is so that the players and computers don't get more than 3 equipments.
-                var playerEquipmentCount = 0;
-                var computerEquipmentCount1 = 0;
-                var computerEquipmentCount2 = 0;
+                // var playerEquipmentCount = 0;
+                // var computerEquipmentCount1 = 0;
+                // var computerEquipmentCount2 = 0;
 
                 //Randomizing an equipment for each computer and player in game.
-                if(playerEquipmentCount <= 3){
-                    var playerEquipment = equipments[Math.floor(Math.random()*equipments.length)];
-                    playerEquipmentCount++;
-                    console.log(playerEquipmentCount);
-                }
+                // if(playerEquipmentCount <= 3){
+                //     var playerEquipment = equipments[Math.floor(Math.random()*equipments.length)];
+                //     playerEquipmentCount++;
+                //     console.log(playerEquipmentCount);
+                // }
 
-                if(computerEquipment1 <= 3){
-                    var computerEquipment1 = equipments[Math.floor(Math.random()*equipments.length)];
-                    computerEquipmentCount1++;
-                    console.log(computerEquipmentCount1);
-                }
+                // if(computerEquipment1 <= 3){
+                //     var computerEquipment1 = equipments[Math.floor(Math.random()*equipments.length)];
+                //     computerEquipmentCount1++;
+                //     console.log(computerEquipmentCount1);
+                // }
 
-                if(computerEquipmentCount2 <= 3){
-                    var computerEquipment2 = equipments[Math.floor(Math.random()*equipments.length)];
-                    computerEquipmentCount2++;
-                    console.log(computerEquipmentCount2);
-                }
+                // if(computerEquipmentCount2 <= 3){
+                //     var computerEquipment2 = equipments[Math.floor(Math.random()*equipments.length)];
+                //     computerEquipmentCount2++;
+                //     console.log(computerEquipmentCount2);
+                // }
 
-                console.log(playerEquipment);
+                // console.log(playerEquipment);
 
-                $.ajax({
-                    url: "startingChallenge.php",
-                    type: "POST",
-                    data: {},
-                    dataType: "json",
-                    success: function (data, textStatus, jqXHR ) {
-                        console.log("success data: ", data);
-                         //Showing the new equipment for the player who will get it.
-                        $("#" + playerEquipment).show();
-                        $(".gettingEquipment").prepend
-                        ("<h1>You recived an equipment, the " + playerEquipment +" is yours now!</h1> ");
+                // $.ajax({
+                //     url: "startingChallenge.php",
+                //     type: "POST",
+                //     data: {},
+                //     dataType: "json",
+                //     success: function (data, textStatus, jqXHR ) {
+                //         console.log("success data: ", data);
+                //          //Showing the new equipment for the player who will get it.
+                //         $("#" + playerEquipment).show();
+                //         $(".gettingEquipment").prepend
+                //         ("<h1>You recived an equipment, the " + playerEquipment +" is yours now!</h1> ");
                         
-                    },
+                //     },
 
-                    error: function(jqXHR, textStatus, errorThrown, data) {
-                        console.log("error data: ", data);
-                        console.log(jqXHR);
-                        console.log("Request failed: " + textStatus);
-                        console.log("Request failed: " + errorThrown);
-                    }
-                });
-        }
-            else{
-                alert("Please, select how you will do the challenge...");
-            }
+                //     error: function(jqXHR, textStatus, errorThrown, data) {
+                //         console.log("error data: ", data);
+                //         console.log(jqXHR);
+                //         console.log("Request failed: " + textStatus);
+                //         console.log("Request failed: " + errorThrown);
+                //     }
+                // });
+            // }
+            // else{
+            //     alert("Please, select how you will do the challenge...");
+            // }
         });
     $(".acceptEquipment").click(function(){
         $(".gettingEquipment").hide();
