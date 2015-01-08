@@ -1,0 +1,31 @@
+h1{
+  font-size: 24px;
+  font-weight: bold;
+  margin: 25px;
+}
+
+label > input{
+  display:none;
+}
+
+img {
+  width: 300px;
+}
+
+label > input + img{
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+label > input:checked + img{
+  border:2px solid #f00;
+}
+
+.challengeInfo, .challengeInfo img, .carryOutChallengeInfo, 
+.noProgress, .gettingEquipment, .gettingEquipment img, .theGame{
+  display: none;
+}
+
+button, .title, .challengeInfo button, .carryOutChallengeInfo button{
+  margin-left: 25px;
+}
