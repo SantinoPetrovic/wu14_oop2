@@ -1,14 +1,14 @@
 <?php
     
-    if (isset($_REQUEST["characterJson"]) && isset($_REQUEST["computerJson"])) {
+    if (isset($_REQUEST["characterJson"])) {
         $charData = $_REQUEST["characterJson"];
-        $compData = $_REQUEST["computerJson"];
+        // $compData = $_REQUEST["computerJson"];
         $character = $charData['character'];
         $playerName = $charData['charName'];
-        $computerName1 = $compData['computerName1'];
-        $computerName2 = $compData['computerName2'];
-        $computerCharacter1 = $compData['computerCharacter1'];
-        $computerCharacter2 = $compData['computerCharacter2'];
+        // $computerName1 = $compData['computerName1'];
+        // $computerName2 = $compData['computerName2'];
+        // $computerCharacter1 = $compData['computerCharacter1'];
+        // $computerCharacter2 = $compData['computerCharacter2'];
     } else {
         echo(json_encode(false));
         exit();
@@ -29,7 +29,7 @@
 
     
     switch($character){
-         case "Warrior":
+        case "Warrior":
         $player = New Warrior($playerName);
         break;
 
@@ -43,11 +43,41 @@
 
         case "Hunter":
         $player = New Hunter($playerName);
-         break;
- }  
+        break;
+   }  
 
-     switch($computerCharacter1){
-         case "Warrior":
+    $computerNames = array(
+        "Babajaga",
+        "BigBazooka",
+        "TensaiNiNaru",
+        "Ogge",
+        "Nevalopo",
+        "MyNameIsJeff",
+        "SuperBlackKnight1337",
+        "LolGetRektPlz"
+    );
+
+    $randComputerName = array_rand($computerNames, 2);
+
+    $computerName1 = $computerNames[$randComputerName[0]];
+    $computerName2 = $computerNames[$randComputerName[1]];
+    
+    //All character's classes.
+    $computerCharacters = array(
+        "Warrior",
+        "Mage",
+        "Hunter",
+        "Rogue"
+    );
+
+    $randComputerCharacter = array_rand($computerCharacters, 2);
+
+    $computerCharacter1 = $computerCharacters[$randComputerCharacter[0]];
+
+    $computerCharacter2 = $computerCharacters[$randComputerCharacter[1]];
+
+    switch($computerCharacter1){
+        case "Warrior":
         $cpu1 = New Warrior($computerName1);
         break;
 
@@ -61,11 +91,11 @@
 
         case "Hunter":
         $cpu1 = New Hunter($computerName1);
-         break;
- }  
+        break;
+    }  
 
-     switch($computerCharacter2){
-         case "Warrior":
+    switch($computerCharacter2){
+        case "Warrior":
         $cpu2 = New Warrior($computerName2);
         break;
 
@@ -79,8 +109,8 @@
 
         case "Hunter":
         $cpu2 = New Hunter($computerName2);
-         break;
- }  
+        break;
+    }  
 
 
 $ds->player[] = &$player;

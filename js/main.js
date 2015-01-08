@@ -13,51 +13,51 @@ $(function(){
         };
 
         //Random names for computer.
-        var computerNames = Array(
-            "Babajaga",
-            "BigBazooka",
-            "TensaiNiNaru",
-            "Ogge",
-            "Nevalopo",
-            "MyNameIsJeff",
-            "SuperBlackKnight1337",
-            "LolGetRektPlz"
-        );
+        // var computerNames = Array(
+        //     "Babajaga",
+        //     "BigBazooka",
+        //     "TensaiNiNaru",
+        //     "Ogge",
+        //     "Nevalopo",
+        //     "MyNameIsJeff",
+        //     "SuperBlackKnight1337",
+        //     "LolGetRektPlz"
+        // );
 
-        //All character's classes.
-        var computerCharacters = Array(
-            "Warrior",
-            "Mage",
-            "Hunter",
-            "Rogue"
-        );
+        // //All character's classes.
+        // var computerCharacters = Array(
+        //     "Warrior",
+        //     "Mage",
+        //     "Hunter",
+        //     "Rogue"
+        // );
 
-        //Randomizing names and characters for computer 1 and computer 2.
-        var computerName1 = computerNames[Math.floor(Math.random()*computerNames.length)];
-        var computerName2 = computerNames[Math.floor(Math.random()*computerNames.length)];
-        var computerCharacter1 = computerCharacters[Math.floor(Math.random()*computerCharacters.length)];
-        var computerCharacter2 = computerCharacters[Math.floor(Math.random()*computerCharacters.length)];
+        // //Randomizing names and characters for computer 1 and computer 2.
+        // var computerName1 = computerNames[Math.floor(Math.random()*computerNames.length)];
+        // var computerName2 = computerNames[Math.floor(Math.random()*computerNames.length)];
+        // var computerCharacter1 = computerCharacters[Math.floor(Math.random()*computerCharacters.length)];
+        // var computerCharacter2 = computerCharacters[Math.floor(Math.random()*computerCharacters.length)];
 
-        //Checking if the two computer players dosen't have the same name. otherwise computer 2 will randomize it's name again.
-        if(computerName1 != computerName2) {
-            var computerData = {
-                "computerName1" : computerName1,
-                "computerName2" : computerName2,
-                "computerCharacter1" : computerCharacter1,
-                "computerCharacter2" : computerCharacter2
-            };
+        // //Checking if the two computer players dosen't have the same name. otherwise computer 2 will randomize it's name again.
+        // if(computerName1 != computerName2) {
+        //     var computerData = {
+        //         "computerName1" : computerName1,
+        //         "computerName2" : computerName2,
+        //         "computerCharacter1" : computerCharacter1,
+        //         "computerCharacter2" : computerCharacter2
+        //     };
 
-        }
+        // }
 
-        else {
-            var computerName2 = computerNames[Math.floor(Math.random()*computerNames.length)];
-        }
+        // else {
+        //     var computerName2 = computerNames[Math.floor(Math.random()*computerNames.length)];
+        // }
         //Putting Data-values in Json-variables.
         var characterJson = characterData;
-        var computerJson = computerData;
+        // var computerJson = computerData;
 
         //Putting Json-variables in an object.
-        var startGameData = {characterJson:characterJson,computerJson:computerJson};
+        var startGameData = {characterJson:characterJson};
         console.log(startGameData);
 
         //Checking if you've filled your name and choosed your character.
@@ -77,10 +77,10 @@ $(function(){
                     //This is for showing all the values on screen so you know what is happening.
                     $(".personDataInfo .character").html(character);
                     $(".personDataInfo .charName").html(charName);
-                    $(".computerDataInfo .computerName1").html(computerName1);
-                    $(".computerDataInfo .computerName2").html(computerName2);
-                    $(".computerDataInfo .computerCharacter1").html(computerCharacter1);
-                    $(".computerDataInfo .computerCharacter2").html(computerCharacter2);
+                    // $(".computerDataInfo .computerName1").html(computerName1);
+                    // $(".computerDataInfo .computerName2").html(computerName2);
+                    // $(".computerDataInfo .computerCharacter1").html(computerCharacter1);
+                    // $(".computerDataInfo .computerCharacter2").html(computerCharacter2);
 
                     console.log("data", data);
                     console.log("Request: " + textStatus);
@@ -94,8 +94,8 @@ $(function(){
                     console.log(jqXHR);
                     console.log("Request failed: " + textStatus);
                     console.log("Request failed: " + errorThrown);
-                    console.log(character);
-                    console.log(charName);
+                    // console.log(character);
+                    // console.log(charName);
                 }
             });
         } else {
