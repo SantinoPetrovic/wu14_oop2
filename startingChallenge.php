@@ -1,23 +1,40 @@
 <?php
 include_once("nodebite-swiss-army-oop.php");
-$ds = new DBObjectSaver(array(
-    "host" => "127.0.0.1",
-    "dbname" => "wu14oop2",
-    "username" => "root",
-    "password" => "mysql",
-    "prefix" => "characters_trial"
-));
+    $ds = new DBObjectSaver(array(
+      "host" => "127.0.0.1",
+      "dbname" => "wu14oop2",
+      "username" => "root",
+      "password" => "mysql",
+      "prefix" => "characters_trial"
+    ));
 
 
-if(isset($_REQUEST["challenge"])){
-  $challenge = $_REQUEST["challenge"];
-}
-else {
-  echo(json_encode(false));
-  exit();
-}
+// if(isset($_REQUEST["challenge"])){
+//   $challenge = $_REQUEST["challenge"];
+// }
+// else {
+//   echo(json_encode(false));
+//   exit();
+// }
 
-$new_challenge = New $challenge();
+// The challenges variable will have a array with 5 values that's strings.
+    $challenges = array(
+      "Trapchallenge",
+      "Eatchallenge",
+      "Battlechallenge",
+      "Cluechallenge",
+      "Hitchallenge"
+    );
+
+    $randChallenge = array_rand($challenges, 1);
+    $challenge = challenges[randChallenge[0]];
+    $new_challenge = New $challenge();
+
+    $oldChallenge = $challenge;
+
+    while ($oldChallenge == $challenge) {
+      $randChallenge = array_rand($challenges, 1);
+    }
 
 
 /*

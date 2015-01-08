@@ -103,26 +103,26 @@ $(function(){
         }
     });
 
-        // The challenges variable will have a array with 5 values that's strings.
-        var challenges = Array(
-            "Trapchallenge",
-            "Eatchallenge",
-            "Battlechallenge",
-            "Cluechallenge",
-            "Hitchallenge"
-        );
+        // // The challenges variable will have a array with 5 values that's strings.
+        // var challenges = Array(
+        //     "Trapchallenge",
+        //     "Eatchallenge",
+        //     "Battlechallenge",
+        //     "Cluechallenge",
+        //     "Hitchallenge"
+        // );
 
-        // The challenge variable takes a random string from challenge.
-        var challenge = challenges[Math.floor(Math.random()*challenges.length)];
-        // And the random string will make one of the images show from html
-        $("#" + challenge).show();
+        // // The challenge variable takes a random string from challenge.
+        // var challenge = challenges[Math.floor(Math.random()*challenges.length)];
+        // // And the random string will make one of the images show from html
+        // $("#" + challenge).show();
 
         $(".changeChallenge").click(function(){
-            var oldChallenge = challenge;
-            while (oldChallenge == challenge) {
-                challenge = challenges[Math.floor(Math.random()*challenges.length)];
-            }
-            $(".challenge").hide();
+            // var oldChallenge = challenge;
+            // while (oldChallenge == challenge) {
+            //     challenge = challenges[Math.floor(Math.random()*challenges.length)];
+            // }
+            // $(".challenge").hide();
             $("#" + challenge).show();
         });
 
