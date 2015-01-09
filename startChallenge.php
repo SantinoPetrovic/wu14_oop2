@@ -9,7 +9,7 @@
         "prefix" => "characters_trial"
     ));
 
-  // The challenges variable will have a array with 5 values that's strings.
+ // The challenges variable will have a array with 5 values that's strings.
     $challenges = array(
       "Trapchallenge",
       "Eatchallenge",
@@ -17,6 +17,7 @@
       "Cluechallenge",
       "Hitchallenge"
     );
+    //var_dump($ds);
     $ds->challenges[] = &$challenges;
 
     $randChallenge = array_rand($challenges);

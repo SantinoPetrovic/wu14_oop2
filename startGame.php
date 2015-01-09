@@ -77,6 +77,8 @@
 
     $computerCharacter2 = $computerCharacters[$randComputerCharacter[1]];
 
+    // var_dump($computerCharacter1);
+
     switch($computerCharacter1){
         case "Warrior":
         $cpu1 = New Warrior($computerName1);

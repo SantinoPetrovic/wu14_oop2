@@ -103,6 +103,7 @@ $(function(){
                 dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
                     console.log("data ", data);
+                    $(".challengeInfo").show();
                     $("#" + data.challenge).show();
 
                 },
@@ -143,7 +144,7 @@ $(function(){
                 type: "POST",
                 dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
-                    $(".challengeInfo").show();
+                    $(".challengeInfo").hide();
                     console.log("success data: ", data);
                     $("#" + data.challenge).show();                    
                 },
