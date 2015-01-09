@@ -17,26 +17,6 @@
   //   exit();
   // }
 
-  // The challenges variable will have a array with 5 values that's strings.
-  $challenges = array(
-    "Trapchallenge",
-    "Eatchallenge",
-    "Battlechallenge",
-    "Cluechallenge",
-    "Hitchallenge"
-  );
-
-  $randChallenge = array_rand($challenges, 1);
-  $challenge = challenges[randChallenge[0]];
-  $new_challenge = New $challenge();
-
-  $oldChallenge = $challenge;
-
-  while ($oldChallenge == $challenge) {
-    $randChallenge = array_rand($challenges, 1);
-  }
-
-
   /*
       $skills = array(
         "requiredStrength" => 10,
@@ -45,6 +25,7 @@
         "requiredWisom" => 10,
       );
   */
+  
   switch($challenge){
     case "Battlechallenge":
     $skills = array(
@@ -95,7 +76,8 @@
     );
     $new_challenge = New $challenge($skills);
     break;
-  }
+  } 
+  
 
   //This is all the names from all the equipment-classes inside an array.
   $equipments = array(

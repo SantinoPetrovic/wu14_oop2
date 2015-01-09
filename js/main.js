@@ -1,5 +1,7 @@
 $(function(){
     $(".startGame").click(function() {
+        $(".startGame").hide();
+
         //Value from which image's checked.
         var character = $("input[name='character']:checked").val();
 
@@ -77,19 +79,21 @@ $(function(){
                     //This is for showing all the values on screen so you know what is happening.
                     $(".personDataInfo .character").html(character);
                     $(".personDataInfo .charName").html(charName);
-                    // $(".computerDataInfo .computerName1").html(computerName1);
-                    // $(".computerDataInfo .computerName2").html(computerName2);
-                    // $(".computerDataInfo .computerCharacter1").html(computerCharacter1);
-                    // $(".computerDataInfo .computerCharacter2").html(computerCharacter2);
+                    $(".computerDataInfo .computerName1").html(data.computerName1);
+                    $(".computerDataInfo .computerName2").html(data.computerName2);
+                    $(".computerDataInfo .computerCharacter1").html(data.computerCharacter1);
+                    $(".computerDataInfo .computerCharacter2").html(data.computerCharacter2);
+                    $("#" + data.challenge).show();
 
                     console.log("data", data);
                     console.log("Request: " + textStatus);
                     console.log(jqXHR);
                     $(".characterSelection").hide();
                     $(".challengeInfo").show();
+
                  },
 
-                error: function(jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, textStatus, errorThrown, data) {
                     console.log("error data: ", data);
                     console.log(jqXHR);
                     console.log("Request failed: " + textStatus);
@@ -100,6 +104,7 @@ $(function(){
             });
         } else {
             alert("Please, choose your character and enter you character name...");
+            $(".startGame").show();
         }
     });
 
@@ -118,12 +123,27 @@ $(function(){
         // $("#" + challenge).show();
 
         $(".changeChallenge").click(function(){
-            // var oldChallenge = challenge;
-            // while (oldChallenge == challenge) {
-            //     challenge = challenges[Math.floor(Math.random()*challenges.length)];
-            // }
-            // $(".challenge").hide();
-            $("#" + challenge).show();
+            console.log("pressed change challenge");
+            $.ajax({
+                url: "resetChallenge.php",
+                type: "POST",
+                // data: {
+                //     challenge: challenge
+                // },
+                dataType: "json",
+                success: function (data, textStatus, jqXHR ) {
+                    console.log("success data: ", data);
+
+                    $("#" + data.challenge).show();                    
+                },
+
+                error: function(jqXHR, textStatus, errorThrown, data) {
+                    console.log("error data: ", data);
+                    console.log(jqXHR);
+                    console.log("Request failed: " + textStatus);
+                    console.log("Request failed: " + errorThrown);
+                }
+            });       
         });
 
         //When accepting challenge, the partner cards will show up.

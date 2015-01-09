@@ -29,7 +29,7 @@
 
     
     switch($character){
-        case "Warrior":
+         case "Warrior":
         $player = New Warrior($playerName);
         break;
 
@@ -43,9 +43,10 @@
 
         case "Hunter":
         $player = New Hunter($playerName);
-        break;
-   }  
-
+         break;
+    }  
+    
+    //All computer names.
     $computerNames = array(
         "Babajaga",
         "BigBazooka",
@@ -91,7 +92,7 @@
 
         case "Hunter":
         $cpu1 = New Hunter($computerName1);
-        break;
+         break;
     }  
 
     switch($computerCharacter2){
@@ -109,21 +110,31 @@
 
         case "Hunter":
         $cpu2 = New Hunter($computerName2);
-        break;
-    }  
+         break;
+    }
 
+  // The challenges variable will have a array with 5 values that's strings.
+    $challenges = array(
+      "Trapchallenge",
+      "Eatchallenge",
+      "Battlechallenge",
+      "Cluechallenge",
+      "Hitchallenge"
+    );
 
-$ds->player[] = &$player;
-$ds->cpu1[] = &$cpu1;
-$ds->cpu2[] = &$cpu2;
+    $randChallenge = array_rand($challenges, 2);
+    $challenge = $challenges[$randChallenge[0]];
 
+    $ds->player[] = &$player;
+    $ds->cpu1[] = &$cpu1;
+    $ds->cpu2[] = &$cpu2;
 
+    $variables = array( 
+      'computerName1' => $computerName1,
+      'computerName2' => $computerName2,
+      'computerCharacter1' => $computerCharacter1,
+      'computerCharacter2' => $computerCharacter2,
+      'challenge' => $challenge 
+    );
 
-
-
-//$player->greet();
-/*
-
-*/
-echo(json_encode($player));
-?>
+    echo(json_encode($variables));
