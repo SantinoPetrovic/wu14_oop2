@@ -17,12 +17,12 @@
       "Cluechallenge",
       "Hitchallenge"
     );
-    $ds->challenges = &$challenges;
+    $ds->challenges[] = &$challenges;
 
     $randChallenge = array_rand($challenges);
     $challenge = $challenges[$randChallenge];
 
-    $ds->challenge = &$challenge;
+    $ds->challenge[] = &$challenge;
     $challengeVariable = array(
       'challenge' => $challenge
     );
