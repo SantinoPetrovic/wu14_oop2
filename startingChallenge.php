@@ -99,11 +99,11 @@
 
   //This is all the names from all the equipment-classes inside an array.
   $equipments = array(
-    "axe",
-    "mysticGlove",
-    "staff",
-    "totem",
-    "bow"
+    "Axe",
+    "MysticGlove",
+    "Staff",
+    "Totem",
+    "Bow"
   );
 
   //This is so that the players and computers don't get more than 3 equipments.

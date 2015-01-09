@@ -68,11 +68,11 @@
         </div>
 
         <div class="gettingEquipment">
-            <img src="imgs/axe.png" id="axe" class="equipment">
-            <img src="imgs/mysticGlove.png" id="mysticGlove" class="equipment">
-            <img src="imgs/staff.png" id="staff" class="equipment">
-            <img src="imgs/totem.png" id="totem" class="equipment">
-            <img src="imgs/bow.png" id="bow" class="equipment"> <br>
+            <img src="imgs/axe.png" id="Axe" class="equipment">
+            <img src="imgs/mysticGlove.png" id="MysticGlove" class="equipment">
+            <img src="imgs/staff.png" id="Staff" class="equipment">
+            <img src="imgs/totem.png" id="Totem" class="equipment">
+            <img src="imgs/bow.png" id="Bow" class="equipment"> <br>
             <button class="acceptEquipment">Okey!</button>
         </div>
 
