@@ -12,3 +12,6 @@
     unset($ds->player);
     unset($ds->cpu1);
     unset($ds->cpu2);
+    unset($ds->challenge);
+    unset($ds->challenges);
+    // var_dump($ds);

@@ -10,4 +10,11 @@
     unset($ds->challenge);
     $ds->player[0]->successPoints -= 5;
     $randChallenge = array_rand($ds->challenges[0]);
-    $challenge = $challenges[$randChallenge];
+    $challenge = $ds->challenges[0][$randChallenge];
+    $ds->challenge[] = &$challenge;
+    $changeChallengeVariable = array(
+      'challenge' => $challenge
+    );
+    // var_dump($ds->challenges[0]);
+    // var_dump($randChallenge);
+    echo(json_encode($changeChallengeVariable));

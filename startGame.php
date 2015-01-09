@@ -2,13 +2,8 @@
 
     if (isset($_REQUEST["characterJson"])) {
         $charData = $_REQUEST["characterJson"];
-        // $compData = $_REQUEST["computerJson"];
         $character = $charData['character'];
         $playerName = $charData['charName'];
-        // $computerName1 = $compData['computerName1'];
-        // $computerName2 = $compData['computerName2'];
-        // $computerCharacter1 = $compData['computerCharacter1'];
-        // $computerCharacter2 = $compData['computerCharacter2'];
     } else {
         echo(json_encode(false));
         exit();
@@ -22,10 +17,6 @@
         "password" => "mysql",
         "prefix" => "characters_trial"
     ));
-    /*$charDataJSON = file_get_contents('php://input');
-
-    $charData = json_decode($charDataJSON, true);*/
-
 
 
     switch($character){
@@ -77,8 +68,6 @@
 
     $computerCharacter2 = $computerCharacters[$randComputerCharacter[1]];
 
-    // var_dump($computerCharacter1);
-
     switch($computerCharacter1){
         case "Warrior":
         $cpu1 = New Warrior($computerName1);
@@ -115,6 +104,8 @@
          break;
     }
 
+// var_dump($ds);
+
     $ds->player[] = &$player;
     $ds->cpu1[] = &$cpu1;
     $ds->cpu2[] = &$cpu2;
@@ -124,8 +115,6 @@
       'computerName2' => $computerName2,
       'computerCharacter1' => $computerCharacter1,
       'computerCharacter2' => $computerCharacter2
-      // 'challenge' => $challenge,
-      // 'oldChallenge' => $oldChallenge
     );
 
     echo(json_encode($variables));
