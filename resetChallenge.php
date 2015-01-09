@@ -9,5 +9,5 @@
     ));
     unset($ds->challenge);
     $ds->player[0]->successPoints -= 5;
-    $randChallenge = array_rand($challenges);
+    $randChallenge = array_rand($ds->challenges[0]);
     $challenge = $challenges[$randChallenge];
