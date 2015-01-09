@@ -1,0 +1,64 @@
+(optimal). Bilder/design ska användas från Hearthstone.
+
+1. Alla bas-klasserna har namnen: player, challenge, equipment.
+
+
+2. Klassen player ska ha 4 styrkor. De ska vara: Health, Damage, Armor och Luck.    
+
+
+3. Styrkorna och funktionerna till health, armor, damage och luck:
+
+   Health: Det är hälsa för en utmanare. Om hälsan blir till 0 för en utmanare så dör utmanaren. Default Healt är 50.
+
+   Damage: Det är skadan som en utmanare kan göra. Ju mer skada man gör, desto mer hälsa förlorar motståndaren. Default Damage är 50.
+
+   Armor: Det är hur mycket en utmanare tåler mot damage. Ju mer armor, desto mindre hälsa förlorar en utmanare. Default Armor är 50%(damage * 0.5).
+
+   Luck: Det är hur mycket tur en utmanare har för att kunna slå extra skada. Ju mer tur, desto mer chans kan en utmanare slå extra skada. Skadan ökas till 150% när luck aktiveras. Default luck är 50%.
+
+
+4. Det ska finnas 4 olika klasser som extendar player. De ska vara: 
+
+	Warrior: health(70), damage(50), armor(60), luck(20) 
+
+	Rouge: health(50), damage(60), armor(40), luck(50) 
+
+	Mage:  health(30), damage(100), armor(20), luck(50)  
+
+	Hunter: health(40), damage(60), armor(30), luck(70)  
+
+
+5. Det ska finnas 5 olika utmaningar som extendar challenge. De ska vara:
+
+	May the luck be with you! (För varje gång en karaktär crittar så får karaktären en luck-poäng. Den som får 10 luck-poäng först vinner förstaplats! Utmaningen avslutas när antingen du eller alla utmanare får 10 luck-poäng.) health(0), damage(0), armor(0), luck(100) Med partner: när din utmanare deltar med en  
+
+	Test all of your abilities! (Varje utmanare kommer slå så mycket han/hon kan mot var sin oslagsbara bot! Men va försiktigt om din utmanare är t.ex mage, boten kommer slå tillbaks efter din slag. Utmaningen avslutas tills alla utmanare är döda och den som har gjort totalt mest skada vinner. Räkna med att luck kommer vara med i spelet.) health(25), damage(25), armor(25), luck(25)
+
+	Last man standing! (I den här utmaningen får ingen utmanare slå mot någon eller något! Här testar vi hur mycket stryk du tål! Varje bot kommer slå mot sin utmanare tills den dör. Den som är last man surviving vinner!) health(50), damage(0), armor(50), luck(0)
+
+	Hit it very hard! (Det handlar inte om hur mycket din utmanare tål mot slag. Allt handlar om hur mycket din utmanare kan skada! Den utmanare som har gjort mest skada vinner. OBSERVERA! Varje utmanare får bara slå en gång, inga fler gånger! Luck kan påverka hur hårt en utmanare slår.) health(0), damage(50), armor(0), luck(50) 
+
+	No RNG, just Skills! (Alla utmanare kommer inte ha tillgång till luck, allting handlar om skills! Alla utmanare slåss mot var sin oslagsbara bot. Den som har mest damage vinner! Tävlingen avslutas tills alla utmanarna är döda.) health(33,3), damage(33,3), armor(33,3), luck(0)
+
+
+6. Din utmanare kommer ha tillgång till att hyra en partner. Partner fungerar såhär: Om din utmanare t.ex skulle komma sista plats och din partner kommer 	   första plats, så kommer din utmanare automatisk komma till första plats. Men skulle din utmanare komma första plats men din partner kommer sista plats så kommer din utmanare inte flyttas till sista plats eftersom din partner har ett mål: din utmanare ska vinna!   
+	
+
+
+7. Det ska finnas 5 olika redskap som extendar equipment. De ska vara:
+
+	Bow: Health(0), damage(5), armor(0), luck(5)
+
+	Sword: Health(0), damage(5), armor(5), luck(0)
+
+	Axe: Health(0), damage(10), armor(0), luck(0)
+
+	Shield: Health(0), damage(0), armor(10), luck(0)
+
+	amulet: Health(0), damage(0), armor(0), luck(10)
+
+
+    
+
+
+

@@ -7,11 +7,10 @@ $(function(){
 
         //Name value from the inputfield when you press start.
         var charName = $(".nameField").val();
-
         //Putting character and charName in an object.
         var characterData = {
             "character": character,
-            "charName": charName
+            "charName": charName,
         };
 
         //Random names for computer.
@@ -64,10 +63,8 @@ $(function(){
 
         //Checking if you've filled your name and choosed your character.
         if(charName !== "" && character !== undefined){
-
             console.log("Pressed start button.");
             console.log(characterData);
-
             $.ajax({
                 url:"startGame.php",
                 type: "POST",
@@ -83,13 +80,11 @@ $(function(){
                     $(".computerDataInfo .computerName2").html(data.computerName2);
                     $(".computerDataInfo .computerCharacter1").html(data.computerCharacter1);
                     $(".computerDataInfo .computerCharacter2").html(data.computerCharacter2);
-                    $("#" + data.challenge).show();
 
-                    console.log("data", data);
+                    console.log("data ", data);
                     console.log("Request: " + textStatus);
                     console.log(jqXHR);
                     $(".characterSelection").hide();
-                    $(".challengeInfo").show();
 
                  },
 
@@ -102,6 +97,26 @@ $(function(){
                     // console.log(charName);
                 }
             });
+            $.ajax({
+                url:"startChallenge.php",
+                type: "POST",
+                dataType: "json",
+                success: function (data, textStatus, jqXHR ) {
+                    console.log("data ", data);
+                    $("#" + data.challenge).show();
+
+                },
+                
+                error: function(jqXHR, textStatus, errorThrown, data) {
+                    console.log("error data: ", data);
+                    console.log(jqXHR);
+                    console.log("Request failed: " + textStatus);
+                    console.log("Request failed: " + errorThrown);
+                    // console.log(character);
+                    // console.log(charName);
+                }
+
+            })
         } else {
             alert("Please, choose your character and enter you character name...");
             $(".startGame").show();
@@ -121,19 +136,15 @@ $(function(){
         // var challenge = challenges[Math.floor(Math.random()*challenges.length)];
         // // And the random string will make one of the images show from html
         // $("#" + challenge).show();
-
-        $(".changeChallenge").click(function(){
+        $(".changeChallenge").click(function() {
             console.log("pressed change challenge");
             $.ajax({
                 url: "resetChallenge.php",
                 type: "POST",
-                // data: {
-                //     challenge: challenge
-                // },
                 dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
+                    $(".challengeInfo").show();
                     console.log("success data: ", data);
-
                     $("#" + data.challenge).show();                    
                 },
 

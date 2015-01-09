@@ -1,5 +1,5 @@
 <?php
-    
+
     if (isset($_REQUEST["characterJson"])) {
         $charData = $_REQUEST["characterJson"];
         // $compData = $_REQUEST["computerJson"];
@@ -27,7 +27,7 @@
     $charData = json_decode($charDataJSON, true);*/
 
 
-    
+
     switch($character){
          case "Warrior":
         $player = New Warrior($playerName);
@@ -44,8 +44,8 @@
         case "Hunter":
         $player = New Hunter($playerName);
          break;
-    }  
-    
+    }
+
     //All computer names.
     $computerNames = array(
         "Babajaga",
@@ -62,7 +62,7 @@
 
     $computerName1 = $computerNames[$randComputerName[0]];
     $computerName2 = $computerNames[$randComputerName[1]];
-    
+
     //All character's classes.
     $computerCharacters = array(
         "Warrior",
@@ -93,7 +93,7 @@
         case "Hunter":
         $cpu1 = New Hunter($computerName1);
          break;
-    }  
+    }
 
     switch($computerCharacter2){
         case "Warrior":
@@ -113,28 +113,17 @@
          break;
     }
 
-  // The challenges variable will have a array with 5 values that's strings.
-    $challenges = array(
-      "Trapchallenge",
-      "Eatchallenge",
-      "Battlechallenge",
-      "Cluechallenge",
-      "Hitchallenge"
-    );
-
-    $randChallenge = array_rand($challenges, 2);
-    $challenge = $challenges[$randChallenge[0]];
-
     $ds->player[] = &$player;
     $ds->cpu1[] = &$cpu1;
     $ds->cpu2[] = &$cpu2;
 
-    $variables = array( 
+    $variables = array(
       'computerName1' => $computerName1,
       'computerName2' => $computerName2,
       'computerCharacter1' => $computerCharacter1,
-      'computerCharacter2' => $computerCharacter2,
-      'challenge' => $challenge 
+      'computerCharacter2' => $computerCharacter2
+      // 'challenge' => $challenge,
+      // 'oldChallenge' => $oldChallenge
     );
 
     echo(json_encode($variables));
