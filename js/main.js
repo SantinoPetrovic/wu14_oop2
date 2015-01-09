@@ -116,7 +116,7 @@ $(function(){
                     // console.log(charName);
                 }
 
-            })
+            });
         } else {
             alert("Please, choose your character and enter you character name...");
             $(".startGame").show();
