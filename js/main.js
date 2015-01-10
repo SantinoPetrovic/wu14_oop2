@@ -85,6 +85,7 @@ $(function(){
                     console.log("Request: " + textStatus);
                     console.log(jqXHR);
                     $(".characterSelection").hide();
+                    callingChallenge();
 
                  },
 
@@ -97,27 +98,29 @@ $(function(){
                     // console.log(charName);
                 }
             });
-            $.ajax({
-                url:"startChallenge.php",
-                type: "POST",
-                dataType: "json",
-                success: function (data, textStatus, jqXHR ) {
-                    console.log("data ", data);
-                    $(".challengeInfo").show();
-                    $("#" + data.challenge).show();
+            function callingChallenge(){
+                $.ajax({
+                    url:"startChallenge.php",
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data, textStatus, jqXHR ) {
+                        console.log("data ", data);
+                        $(".challengeInfo").show();
+                        $("#" + data.challenge).show();
 
-                },
-                
-                error: function(jqXHR, textStatus, errorThrown, data) {
-                    console.log("error data: ", data);
-                    console.log(jqXHR);
-                    console.log("Request failed: " + textStatus);
-                    console.log("Request failed: " + errorThrown);
-                    // console.log(character);
-                    // console.log(charName);
-                }
+                    },
 
-            });
+                    error: function(jqXHR, textStatus, errorThrown, data) {
+                        console.log("error data: ", data);
+                        console.log(jqXHR);
+                        console.log("Request failed: " + textStatus);
+                        console.log("Request failed: " + errorThrown);
+                        // console.log(character);
+                        // console.log(charName);
+                    }
+
+                });
+            }
         } else {
             alert("Please, choose your character and enter you character name...");
             $(".startGame").show();
@@ -146,7 +149,7 @@ $(function(){
                 success: function (data, textStatus, jqXHR ) {
                     $(".challengeInfo").hide();
                     console.log("success data: ", data);
-                    $("#" + data.challenge).show();                    
+                    $("#" + data.challenge).show();
                 },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -155,7 +158,7 @@ $(function(){
                     console.log("Request failed: " + textStatus);
                     console.log("Request failed: " + errorThrown);
                 }
-            });       
+            });
         });
 
         //When accepting challenge, the partner cards will show up.
@@ -181,7 +184,7 @@ $(function(){
                     console.log("Request failed: " + errorThrown);
                 }
             });
-            
+
         });
 
         //Gain a value when choosing if you want a partner or not.
@@ -207,7 +210,7 @@ $(function(){
             });
             //Checking if you've choosen a card.
             // if(carryChallenge !== undefined) {
-                
+
 
                 //This is all the names from all the equipment-classes inside an array.
                 // var equipments = Array(
@@ -254,7 +257,7 @@ $(function(){
                 //         $("#" + playerEquipment).show();
                 //         $(".gettingEquipment").prepend
                 //         ("<h1>You recived an equipment, the " + playerEquipment +" is yours now!</h1> ");
-                        
+
                 //     },
 
                 //     error: function(jqXHR, textStatus, errorThrown, data) {
