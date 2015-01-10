@@ -24,6 +24,7 @@
     $challenge = $challenges[$randChallenge];
 
     $ds->challenge[] = &$challenge;
+    $ds->challengeCount[0]++;
     $challengeVariable = array(
       'challenge' => $challenge
     );

@@ -166,9 +166,6 @@ $(function(){
             $.ajax({
                 url: "startingChallenge.php",
                 type: "POST",
-                data: {
-                    challenge: challenge
-                },
                 dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);

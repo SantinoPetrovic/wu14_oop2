@@ -8,7 +8,7 @@
     "prefix" => "characters_trial"
   ));
 
-
+$challenge = $ds->challenge[0];
   // if(isset($_REQUEST["challenge"])){
   //   $challenge = $_REQUEST["challenge"];
   // }
@@ -76,34 +76,17 @@
     );
     $new_challenge = New $challenge($skills);
     break;
-  }
+}
 
+  // for($j=0; $j<3; $j++){
+  //   $randEquipmentComputer1 = array_rand($equipments);
+  //   $computerEquipment1 = $equipments[$randEquipmentComputer1];
+  // }
 
-  //This is all the names from all the equipment-classes inside an array.
-  $equipments = array(
-    "Axe",
-    "MysticGlove",
-    "Staff",
-    "Totem",
-    "Bow"
-  );
-
-  //This is so that the players and computers don't get more than 3 equipments.
-  //Randomizing an equipment for each computer and player in game.
-  for($i=0; $i<3; $i++){
-    $randEquipmentPlayer = array_rand($equipments, 2);
-    $playerEquipment = $equipments[$randEquipmentPlayer[0]];
-  }
-
-  for($j=0; $j<3; $j++){
-    $randEquipmentComputer1 = array_rand($equipments, 2);
-    $computerEquipment1 = $equipments[$randEquipmentComputer1[0]];
-  }
-
-  for($k=0; $k<3; $k++){
-    $randEquipmentComputer2 = array_rand($equipments, 2);
-    $computerEquipment2 = $equipments[$randEquipmentComputer2[0]];
-  }
+  // for($k=0; $k<3; $k++){
+  //   $randEquipmentComputer2 = array_rand($equipments);
+  //   $computerEquipment2 = $equipments[$randEquipmentComputer2];
+  // }
 
   unset($ds->current_challenge);
   $ds->current_challenge[] = $new_challenge;

@@ -7,6 +7,8 @@
         "password" => "188830",
         "prefix" => "characters_trial"
     ));
+    // var_dump($ds);
+    $ds->challengeCount[0]++;
     unset($ds->challenge);
     $ds->player[0]->successPoints -= 5;
     $randChallenge = array_rand($ds->challenges[0]);
