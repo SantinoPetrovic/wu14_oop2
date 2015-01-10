@@ -4,7 +4,7 @@
     "host" => "127.0.0.1",
     "dbname" => "wu14oop2",
     "username" => "root",
-    "password" => "mysql",
+    "password" => "188830",
     "prefix" => "characters_trial"
   ));
 
@@ -25,7 +25,7 @@
         "requiredWisom" => 10,
       );
   */
-  
+
   switch($challenge){
     case "Battlechallenge":
     $skills = array(
@@ -52,7 +52,7 @@
       "requiredStrength" => 0,
       "requiredAgility" => 0,
       "requiredIntelligence" => 90,
-      "requiredWisom" => 90  
+      "requiredWisom" => 90
     );
     $new_challenge = New $challenge($skills);
     break;
@@ -76,8 +76,8 @@
     );
     $new_challenge = New $challenge($skills);
     break;
-  } 
-  
+  }
+
 
   //This is all the names from all the equipment-classes inside an array.
   $equipments = array(
@@ -91,13 +91,13 @@
   //This is so that the players and computers don't get more than 3 equipments.
   //Randomizing an equipment for each computer and player in game.
   for($i=0; $i<3; $i++){
-    $randEquipmentPlayer = array_rand($equipments, 2); 
+    $randEquipmentPlayer = array_rand($equipments, 2);
     $playerEquipment = $equipments[$randEquipmentPlayer[0]];
   }
 
   for($j=0; $j<3; $j++){
     $randEquipmentComputer1 = array_rand($equipments, 2);
-    $computerEquipment1 = $equipments[$randEquipmentComputer1[0]];   
+    $computerEquipment1 = $equipments[$randEquipmentComputer1[0]];
   }
 
   for($k=0; $k<3; $k++){

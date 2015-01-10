@@ -5,7 +5,7 @@
         "host" => "127.0.0.1",
         "dbname" => "wu14oop2",
         "username" => "root",
-        "password" => "mysql",
+        "password" => "188830",
         "prefix" => "characters_trial"
     ));
 
