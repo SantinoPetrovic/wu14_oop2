@@ -21,8 +21,9 @@ label > input:checked + img{
   border:2px solid #f00;
 }
 
-.challengeInfo, .challengeInfo img, .carryOutChallengeInfo, 
-.noProgress, .gettingEquipment, .gettingEquipment img, .theGame{
+.challengeInfo, .challengeInfo img, .carryOutChallengeInfo,
+.noProgress, .gettingEquipment, .gettingEquipment img, .theGame,
+.carryChallengeWithCpu{
   display: none;
 }
 

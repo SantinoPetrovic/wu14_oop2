@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_REQUEST["characterJson"])) {
-    $charData = $_REQUEST["characterJson"];
+if (isset($_REQUEST["characterData"])) {
+    $charData = $_REQUEST["characterData"];
     $character = $charData['character'];
     $playerName = $charData['charName'];
 } else {

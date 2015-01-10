@@ -14,4 +14,9 @@
     unset($ds->cpu2);
     unset($ds->challenge);
     unset($ds->challenges);
+    unset($ds->gameEquipments);
+    unset($ds->teamStrength);
+    unset($ds->teamAgility);
+    unset($ds->teamIntelligence);
+    unset($ds->teamWisdom);
     // var_dump($ds);

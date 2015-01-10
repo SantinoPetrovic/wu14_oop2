@@ -45,26 +45,42 @@
             <br>
         </div>
         <div class="challengeInfo">
-            <img src="imgs/trap-challenge.png" id="Trapchallenge" class="challenge"> 
-            <img src="imgs/eat-challenge.png" id="Eatchallenge" class="challenge"> 
-            <img src="imgs/battle-challenge.png" id="Battlechallenge" class="challenge"> 
-            <img src="imgs/clue-challenge.png" id="Cluechallenge" class="challenge"> 
+            <img src="imgs/trap-challenge.png" id="Trapchallenge" class="challenge">
+            <img src="imgs/eat-challenge.png" id="Eatchallenge" class="challenge">
+            <img src="imgs/battle-challenge.png" id="Battlechallenge" class="challenge">
+            <img src="imgs/clue-challenge.png" id="Cluechallenge" class="challenge">
             <img src="imgs/hit-challenge.png" id="Hitchallenge" class="challenge"> <br>
             <button class="acceptChallenge">Accept challenge</button>
             <button class="changeChallenge">Change challenge</button>
         </div>
 
         <div class="carryOutChallengeInfo">
-            <label>
-                <input type="radio" id="carryOutChallenge" name="carryChallenge">
-                <img src="imgs/carryOutChallenge.png">
-            </label>
+            <button class="soloChallenge">
+                <label>
+                    <input type="radio" id="carryOutChallenge" name="carryChallenge">
+                    <img src="imgs/carryOutChallenge.png">
+                </label>
+            </button>
 
+        <button class="teamChallenge">
             <label>
                 <input type="radio" id="carryOutChallengeWithPartner" name="carryChallenge">
                 <img src="imgs/carryOutChallengeWithPartner.png">
-            </label> <br>
-            <button class="startChallenge">Let's go!</button>
+            </label>
+        </button> <br>
+        </div>
+
+        <div class="carryChallengeWithCpu">
+            <button class="teamCpu1">
+                <label>
+                    <img src="imgs/computerPlayer1.png">
+                </label>
+            </button>
+            <button class="teamCpu2">
+                <label>
+                    <img src="imgs/computerPlayer2.png">
+                </label>
+            </button>
         </div>
 
         <div class="gettingEquipment">
@@ -77,7 +93,7 @@
         </div>
 
         <div class="theGame">
-            
+
         </div>
         <p class="noProgress"> Sorry man, It's the game :(</p>
     </header>
