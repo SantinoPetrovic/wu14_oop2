@@ -95,7 +95,7 @@
         <div class="theGame">
 
         </div>
-        <p class="noProgress"> Sorry man, It's the game :(</p>
+<!--         <p class="lose"> Sorry man, It's the game, you lose. :(</p> -->
     </header>
     <button class='resetButton'>Reset</button>
     <footer>

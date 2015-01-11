@@ -8,24 +8,52 @@
     "prefix" => "characters_trial"
   ));
 
+// Get random value from arrays
+function array_random($arr, $num = 1) {
+    shuffle($arr);
+
+    $r = array();
+    for ($i = 0; $i < $num; $i++) {
+        $r[] = $arr[$i];
+    }
+    return $num == 1 ? $r[0] : $r;
+}
+
+$noMoreEquipments = false;
+
+// Gives challenger random equipment from equipment array
+function giveRandomEquipment(&$equipments, &$challengerEquipment) {
+    if(!empty($equipments)) {
+        if(count($challengerEquipment) < 3) {
+            $randomEquipment = array_random($equipments);
+            $challengerEquipment[] = $randomEquipment;
+            $key = array_search($randomEquipment, $equipments);
+            unset($equipments[$key]);
+        }
+    } else {
+        global $noMoreEquipments;
+        $noMoreEquipments = true;
+    }
+}
+
+// Define challenger and their equipment values.
 $challenge = $ds->challenge[0];
-  // if(isset($_REQUEST["challenge"])){
-  //   $challenge = $_REQUEST["challenge"];
-  // }
-  // else {
-  //   echo(json_encode(false));
-  //   exit();
-  // }
+$gameEquipments = $ds->gameEquipments[0];
+$playerEquipment = array();
+$cpu1Equipment = array();
+$cpu2Equipment = array();
 
-  /*
-      $skills = array(
-        "requiredStrength" => 10,
-        "requiredAgility" => 10,
-        "requiredIntelligence" => 10,
-        "requiredWisom" => 10,
-      );
-  */
+// Add randomized weapon too player, computerplayer1 and computerplayer2.
+// Randomized weapons are removed from aviable weapons-array.
+giveRandomEquipment($gameEquipments, $playerEquipment);
+giveRandomEquipment($gameEquipments, $cpu1Equipment);
+giveRandomEquipment($gameEquipments, $cpu2Equipment);
 
+$ds->gameEquipments[0] = $gameEquipments;
+$ds->playerEquipment[0] = $playerEquipment;
+$ds->cpu1Equipment[0] = $cpu1Equipment;
+$ds->cpu2Equipment[0] = $cpu2Equipment;
+// var_dump($playerEquipment[0]);
   switch($challenge){
     case "Battlechallenge":
     $skills = array(
@@ -78,17 +106,19 @@ $challenge = $ds->challenge[0];
     break;
 }
 
-  // for($j=0; $j<3; $j++){
-  //   $randEquipmentComputer1 = array_rand($equipments);
-  //   $computerEquipment1 = $equipments[$randEquipmentComputer1];
-  // }
+if($noMoreEquipments) {
+    $equipmentStatus = "No more equipments...";
+}
+else{
+    $equipmentStatus = "EQUIPMENT!";
+}
 
-  // for($k=0; $k<3; $k++){
-  //   $randEquipmentComputer2 = array_rand($equipments);
-  //   $computerEquipment2 = $equipments[$randEquipmentComputer2];
-  // }
-
-  unset($ds->current_challenge);
-  $ds->current_challenge[] = $new_challenge;
-
-  echo(json_encode($new_challenge));
+unset($ds->current_challenge);
+$ds->current_challenge[] = $new_challenge;
+$ds->noMoreEquipments[] = &$noMoreEquipments;
+    $arrayVariable = array(
+      'new_challenge' => $new_challenge,
+      'equipmentStatus' => $equipmentStatus,
+      'playerEquipment' => $playerEquipment
+    );
+echo(json_encode($arrayVariable));

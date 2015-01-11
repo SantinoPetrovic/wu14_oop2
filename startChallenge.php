@@ -20,6 +20,7 @@
     //var_dump($ds);
     $ds->challenges[] = &$challenges;
 
+
     $randChallenge = array_rand($challenges);
     $challenge = $challenges[$randChallenge];
 

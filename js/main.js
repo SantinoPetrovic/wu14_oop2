@@ -107,9 +107,11 @@ $(function(){
                 dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);
+                    console.log(data.playerEquipment);
                     $(".challengeInfo").hide();
-                    $(".carryOutChallengeInfo").show();
-                    // $(".carryOutChallengeInfo").html("<h1> How will you carry out the " + challenge + "?</h1>");
+                    $(".gettingEquipment").show();
+                    // $(".gettingEquipment").html(data.equipmentStatus);
+                    $("#" + data.playerEquipment).show();
                 },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -189,7 +191,6 @@ $(function(){
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);
                     $(".carryChallengeWithCpu").hide();
-                    $(".gettingEquipment").show();
                 },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -202,7 +203,8 @@ $(function(){
         });
     $(".acceptEquipment").click(function(){
         $(".gettingEquipment").hide();
-        $(".theGame").show();
+        // $(".theGame").show();
+        $(".carryOutChallengeInfo").show();
     });
     $(".resetButton").click(function(){
         $.ajax({
