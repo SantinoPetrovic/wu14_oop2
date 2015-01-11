@@ -27,7 +27,7 @@
         unset($ds->noMoreEquipments);
         unset($ds->current_challenge);
         unset($ds->equipmentStatus);
-        unset($ds->cpuChallengeTeammate);
+        unset($ds->team);
 //     }
 
 // echo(json_encode(true));

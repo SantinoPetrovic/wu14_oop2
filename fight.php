@@ -8,7 +8,16 @@ $ds = new DBObjectSaver(array(
     "prefix" => "characters_trial"
 ));
 
- public function howGoodAMatch($player, $cpu1, $cpu2){
-    $sum= 0;
-    $max = 0;
+if($ds->teamFight[0]){
+    $team = $ds->team[0];
+    $challenge = $ds->current_challenge[0];
+    if($ds->teamFight[0] == "cpu1") {
+        $cpu2 = $ds->cpu2[0];
+    }
+    elseif ($ds->teamFight[0] == "cpu2"){
+        $cpu1 = $ds->cpu1[0];
+    }
+}
+else {
+
 }

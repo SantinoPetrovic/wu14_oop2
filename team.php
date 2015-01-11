@@ -24,23 +24,34 @@ $player = $ds->player[0];
 // Get computer teammate values
 if($computer == "cpu1"){
     $cpuChallengeTeammate = $ds->cpu1[0];
+    $ds->teamFight[0] = "cpu1";
+    $cpuEquipment = $ds->cpu1Equipment[0]
 } elseif($computer == "cpu2") {
     $cpuChallengeTeammate = $ds->cpu2[0];
+    $ds->teamFight[0] = "cpu2";
+    $cpuEquipment = $ds->cpu2Equipment[0]
 }
 
+$playerEquipment = $ds->playerEquipment[0]
 
-$teamStrength = $cpuChallengeTeammate->strength + $player->strength;
-$teamAgility = $cpuChallengeTeammate->agility + $player->agility;
-$teamIntelligence = $cpuChallengeTeammate->intelligence + $player->intelligence;
-$teamWisdom = $cpuChallengeTeammate->wisdom + $player->wisdom;
-$ds->teamFight[0] = true;
+$team['strength'] = $cpuChallengeTeammate->strength + $player->strength +
+$cpuChallengeTeammate->cpuEquipment->weaponStrength +
+$player->$playerEquipment->weaponStrength;
+$team['agility'] = $cpuChallengeTeammate->agility + $player->agility +
+$cpuChallengeTeammate->cpuEquipment->weaponAgility +
+$player->$playerEquipment->weaponAgility;
+$team['intelligence'] = $cpuChallengeTeammate->intelligence + $player->intelligence +
+$cpuChallengeTeammate->cpuEquipment->weaponIntelligence +
+$player->$playerEquipment->weaponIntelligence;
+$team['wisdom'] = $cpuChallengeTeammate->wisdom + $player->wisdom +
+$cpuChallengeTeammate->cpuEquipment->weaponWisdom +
+$player->$playerEquipment->weaponWisdom;
+
+
 // var_dump($ds->teamFight[0]);
 
-$ds->teamStrength[] = &$teamStrength;
-$ds->teamAgility[] = &$teamAgility;
-$ds->teamIntelligence[] = &$teamIntelligence;
-$ds->teamWisdom[] = &$teamWisdom;
-$ds->cpuChallengeTeammate[] = &$cpuChallengeTeammate;
+
+$ds->team[] = &$team;
 echo(json_encode(true));
 /*
   public function __construct($name, $human, $computer) {
