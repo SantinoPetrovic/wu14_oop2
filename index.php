@@ -88,11 +88,55 @@
         </div>
 
         <div class="theGame">
-             <h1 class="player"><span class="charName"></span> (<span class="character"></span>) Scores: </h1><br>
-             <h1 class="cpu1"><span class="computerName1"></span> (<span class="computerCharacter1"></span>) Scores: </h1><br>
-             <h1 class="cpu2"><span class="computerName2"></span> (<span class="computerCharacter2"></span>) Scores: </h1><br>
-             <h1 class="team">Your team's score: </h1>
+            <h1 class="player">
+                <span class="charName"></span>
+                (<span class="character"></span>)
+                Challenge-points left:
+                <span id ="playerPoints"> </span>
+            </h1><br>
+
+            <h1 class="cpu1">
+                <span class="computerName1"></span>
+                (<span class="computerCharacter1"></span>) Challenge-points left:
+                <span id ="cpu1Points"> </span>
+            </h1><br>
+
+            <h1 class="cpu2">
+                <span class="computerName2"></span>
+                (<span class="computerCharacter2"></span>) Challenge-points left:
+                <span id ="cpu2Points"></span>
+            </h1><br>
+
+<!--             <h1 class="team">Your team's score: </h1> -->
+            <button class="showStats">SHOW!</button>
+            <button class="endChallenge">End challenge</button>
         </div>
+        <div class="showSuccessPoints">
+            <h1 class="player">
+                <span class="charName"></span>
+                (<span class="character"></span>)
+                success-points:
+                <span id ="playerSuccessPoints"> </span>
+            </h1><br>
+
+            <h1 class="cpu1">
+                <span class="computerName1"></span>
+                (<span class="computerCharacter1"></span>)
+                success-points:
+                <span id ="cpu1SuccessPoints"> </span>
+            </h1><br>
+
+            <h1 class="cpu2">
+                <span class="computerName2"></span>
+                (<span class="computerCharacter2"></span>)
+                success-points:
+                <span id ="cpu2SuccessPoints"></span>
+            </h1><br>
+            <h1 class="doIWin"></h1>
+            <button class="resetAfterSuccess">Okey</button>
+            <button class="confirmSuccess">Okey</button>
+        </div>
+
 <!--         <p class="lose"> Sorry man, It's the game, you lose. :(</p> -->
     </header>
     <button class='resetButton'>Reset</button>

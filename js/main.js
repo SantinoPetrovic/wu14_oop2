@@ -53,29 +53,6 @@ $(function(){
                     // console.log(charName);
                 }
             });
-            function callingChallenge(){
-                $.ajax({
-                    url:"startChallenge.php",
-                    type: "POST",
-                    dataType: "json",
-                    success: function (data, textStatus, jqXHR ) {
-                        console.log("data ", data);
-                        $(".challengeInfo").show();
-                        $("#" + data.challenge).show();
-
-                    },
-
-                    error: function(jqXHR, textStatus, errorThrown, data) {
-                        console.log("error data: ", data);
-                        console.log(jqXHR);
-                        console.log("Request failed: " + textStatus);
-                        console.log("Request failed: " + errorThrown);
-                        // console.log(character);
-                        // console.log(charName);
-                    }
-
-                });
-            }
         } else {
             alert("Please, choose your character and enter you character name...");
             $(".startGame").show();
@@ -112,6 +89,7 @@ $(function(){
                     console.log("success data: ", data);
                     console.log(data.playerEquipment);
                     $(".challengeInfo").hide();
+                    $(".challenge").hide();
                     $(".gettingEquipment").show();
                     $(".gettingEquipment #" + data.playerEquipment).show();
                     $(".gettingEquipment .status").html(data.equipmentStatus);
@@ -150,30 +128,86 @@ $(function(){
 
         });
 
-        $(".teamChallenge").click(function(){
-            $(".carryOutChallengeInfo").hide();
-            $(".carryChallengeWithCpu").show();
+         $(".teamChallenge").click(function(){
+             $(".carryOutChallengeInfo").hide();
+             $(".carryChallengeWithCpu").show();
+         });
+
+         $(".teamCpu1").click(function(){
+             var teamData = "cpu1";
+             var teamJson = {
+                 "teamData" : teamData
+             }
+             console.log(teamJson);
+             $.ajax({
+                 url: "team.php",
+                 type: "POST",
+                data: {teamJson : teamJson},
+                dataType: "json",
+                 success: function (data, textStatus, jqXHR ) {
+                     console.log("success data: ", data);
+                     $(".carryChallengeWithCpu").hide();
+                     $(".theGame").show();
+                     $(".theGame .player").hide();
+                     $(".theGame .cpu1").hide();
+                     $(".theGame .team").show();
+                 },
+
+                 error: function(jqXHR, textStatus, errorThrown, data) {
+                     console.log("error data: ", data);
+                     console.log(jqXHR);
+                     console.log("Request failed: " + textStatus);
+                     console.log("Request failed: " + errorThrown);
+                 }
+             });
+         });
+
+         $(".teamCpu2").click(function(){
+             var teamData = "cpu2";
+             var teamJson = {
+                 "teamData" : teamData
+             }
+             console.log(teamJson);
+             $.ajax({
+                 url: "team.php",
+                 type: "POST",
+                 data: {teamJson : teamJson},
+                 dataType: "json",
+                 success: function (data, textStatus, jqXHR ) {
+                     console.log("success data: ", data);
+                     $(".carryChallengeWithCpu").hide();
+                     $(".theGame").show();
+                     $(".theGame .player").hide();
+                     $(".theGame .cpu2").hide();
+                     $(".theGame .team").show();
+                 },
+
+                 error: function(jqXHR, textStatus, errorThrown, data) {
+                     console.log("error data: ", data);
+                     console.log(jqXHR);
+                     console.log("Request failed: " + textStatus);
+                     console.log("Request failed: " + errorThrown);
+                 }
+             });
+         });
+        $(".acceptEquipment").click(function(){
+            $(".gettingEquipment").hide();
+            $(".carryOutChallengeInfo").show();
         });
 
-        $(".teamCpu1").click(function(){
-            var teamData = "cpu1";
-            var teamJson = {
-                "teamData" : teamData
-            }
-            console.log(teamJson);
+        $(".showStats").click(function(){
             $.ajax({
-                url: "team.php",
+                url: "fight.php",
                 type: "POST",
-                data: {teamJson : teamJson},
                 dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);
-                    $(".carryChallengeWithCpu").hide();
-                    $(".theGame").show();
-                    $(".theGame .player").hide();
-                    $(".theGame .cpu1").hide();
-                    $(".theGame .team").show();
-
+                    console.log($("#playerPoints").html(data.scorePlayer));
+                    $("#playerPoints").html(data.scorePlayer);
+                    $("#cpu1Points").html(data.scoreCpu1);
+                    $("#cpu2Points").html(data.scoreCpu2);
+                    $(".endChallenge").show();
+                    $(".showStats").hide();
                 },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -185,26 +219,26 @@ $(function(){
             });
         });
 
-        $(".teamCpu2").click(function(){
-            var teamData = "cpu2";
-            var teamJson = {
-                "teamData" : teamData
-            }
-            console.log(teamJson);
+        $(".endChallenge").click(function(){
             $.ajax({
-                url: "team.php",
+                url: "winOrLose.php",
                 type: "POST",
-                data: {teamJson : teamJson},
-                dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);
-                    $(".carryChallengeWithCpu").hide();
-                    $(".theGame").show();
-                    $(".theGame .player").hide();
-                    $(".theGame .cpu2").hide();
-                    $(".theGame .team").show();
+                    $(".showSuccessPoints").show();
+                    $(".showSuccessPoints .player").html(data.playerSuccessPoints);
+                    $(".showSuccessPoints .cpu1").html(data.cpu1SuccessPoints);
+                    $(".showSuccessPoints .cpu2").html(data.cpu2SuccessPoints);
+                    $(".theGame").hide();
+                    // $(".showSuccessPoints").show();
+                    if(data.statusSuccessPoints == "you win" || data.statusSuccessPoints == "you lose"){
+                        $(".doIWin").html(data.statusSuccessPoints);
+                        $(".resetAfterSuccess").show();
+                    }
+                    else{
+                        $(".confirmSuccess").show();
+                    }
                 },
-
                 error: function(jqXHR, textStatus, errorThrown, data) {
                     console.log("error data: ", data);
                     console.log(jqXHR);
@@ -212,31 +246,25 @@ $(function(){
                     console.log("Request failed: " + errorThrown);
                 }
             });
+
         });
-    $(".acceptEquipment").click(function(){
-        $(".gettingEquipment").hide();
-        // $(".theGame").show();
-        $(".carryOutChallengeInfo").show();
-    });
+
+        $(".resetAfterSuccess").click(function(){
+            location.reload();
+        });
+
+        $(".confirmSuccess").click(function(){
+            callingChallenge();
+            $(".confirmSuccess").hide();
+        });
     // function startOver() {
         $(".resetButton").click(function(){
             $.ajax({
                 url: "reset.php",
                 type: "POST",
-                // data: {startOver: 1},
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);
-                    $(".carryChallengeWithCpu").hide();
-                    $(".carryOutChallengeInfo").hide();
-                    $(".gettingEquipment").hide();
-                    $(".equipment").hide();
-                    $(".challengeInfo").hide();
-                    $(".challenge").hide();
-                    $(".characterSelection").show();
-                    $(".theGame").hide();
-                    $(".player").show();
-                    $(".cpu1").show();
-                    $(".cpu2").show();
+                    location.reload();
                     },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -247,5 +275,28 @@ $(function(){
                 }
             });
         });
+    function callingChallenge(){
+        $.ajax({
+            url:"startChallenge.php",
+            type: "POST",
+            dataType: "json",
+            success: function (data, textStatus, jqXHR ) {
+                console.log("data ", data);
+                $(".challengeInfo").show();
+                $("#" + data.challenge).show();
+
+            },
+
+            error: function(jqXHR, textStatus, errorThrown, data) {
+                console.log("error data: ", data);
+                console.log(jqXHR);
+                console.log("Request failed: " + textStatus);
+                console.log("Request failed: " + errorThrown);
+                // console.log(character);
+                // console.log(charName);
+            }
+
+        });
+    }
     // }
 });

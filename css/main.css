@@ -23,7 +23,8 @@ label > input:checked + img{
 
 .challengeInfo, .challengeInfo img, .carryOutChallengeInfo,
 .noProgress, .gettingEquipment, .gettingEquipment img, .theGame,
-.carryChallengeWithCpu, .theGame .team{
+.carryChallengeWithCpu, .theGame .team, .showSuccessPoints, .endChallenge,
+.resetAfterSuccess{
   display: none;
 }
 

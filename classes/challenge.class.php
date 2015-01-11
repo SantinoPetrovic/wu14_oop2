@@ -3,7 +3,7 @@ class Challenge extends Base {
 	public $requiredStrength;
 	public $requiredAgility;
 	public $requiredIntelligence;
-	public $requiredWisom;
+	public $requiredWisdom;
 	/*
 		could be replaced with
 		public $skills = array(

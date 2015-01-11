@@ -32,32 +32,17 @@ if($computer == "cpu1"){
     $cpuEquipment = $ds->cpu2Equipment[0];
 }
 
-$playerEquipment = $ds->playerEquipment[0]
+$playerEquipment = $ds->playerEquipment[0];
 
 
 
 
 
-
-
-
-
-
-$team = array(
-"strength" => 0,
-"agility" => 0,
-"intelligence" => 0,
-"wisdom" => 0
-);
-
-$team['strength'] = $cpuChallengeTeammate->strength + $player->strength + $cpuChallengeTeammate->cpuEquipment->weaponStrength + $player->$playerEquipment->weaponStrength;
-$team['agility'] = $cpuChallengeTeammate->agility + $player->agility + $cpuChallengeTeammate->cpuEquipment->weaponAgility + $player->$playerEquipment->weaponAgility;
-$team['intelligence'] = $cpuChallengeTeammate->intelligence + $player->intelligence + $cpuChallengeTeammate->cpuEquipment->weaponIntelligence + $player->$playerEquipment->weaponIntelligence;
-$team['wisdom'] = $cpuChallengeTeammate->wisdom + $player->wisdom + $cpuChallengeTeammate->cpuEquipment->weaponWisdom + $player->$playerEquipment->weaponWisdom;
 // var_dump($team);
 
 // var_dump($ds->teamFight[0]);
 
+$team = new Team();
 
 $ds->team[] = &$team;
 echo(json_encode(true));

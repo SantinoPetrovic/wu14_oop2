@@ -49,10 +49,10 @@ giveRandomEquipment($gameEquipments, $playerEquipment);
 giveRandomEquipment($gameEquipments, $cpu1Equipment);
 giveRandomEquipment($gameEquipments, $cpu2Equipment);
 
-$ds->gameEquipments[0] = $gameEquipments;
-$ds->playerEquipment[0] = $playerEquipment;
-$ds->cpu1Equipment[0] = $cpu1Equipment;
-$ds->cpu2Equipment[0] = $cpu2Equipment;
+$ds->gameEquipments[0] = &$gameEquipment;
+$ds->playerEquipment[0] = &$playerEquipment;
+$ds->cpu1Equipment[0] = &$cpu1Equipment;
+$ds->cpu2Equipment[0] = &$cpu2Equipment;
 // var_dump($playerEquipment[0]);
   switch($challenge){
     case "Battlechallenge":
@@ -60,7 +60,7 @@ $ds->cpu2Equipment[0] = $cpu2Equipment;
       "requiredStrength" => 60,
       "requiredAgility" => 60,
       "requiredIntelligence" => 60,
-      "requiredWisom" => 0
+      "requiredWisdom" => 0
     );
     $new_challenge = New $challenge($skills);
     break;
@@ -70,7 +70,7 @@ $ds->cpu2Equipment[0] = $cpu2Equipment;
       "requiredStrength" => 90,
       "requiredAgility" => 90,
       "requiredIntelligence" => 0,
-      "requiredWisom" => 0
+      "requiredWisdom" => 0
     );
     $new_challenge = New $challenge($skills);
     break;
@@ -80,7 +80,7 @@ $ds->cpu2Equipment[0] = $cpu2Equipment;
       "requiredStrength" => 0,
       "requiredAgility" => 0,
       "requiredIntelligence" => 90,
-      "requiredWisom" => 90
+      "requiredWisdom" => 90
     );
     $new_challenge = New $challenge($skills);
     break;
@@ -90,7 +90,7 @@ $ds->cpu2Equipment[0] = $cpu2Equipment;
       "requiredStrength" => 20,
       "requiredAgility" => 90,
       "requiredIntelligence" => 30,
-      "requiredWisom" => 50
+      "requiredWisdom" => 50
     );
     $new_challenge = New $challenge($skills);
     break;
@@ -100,7 +100,7 @@ $ds->cpu2Equipment[0] = $cpu2Equipment;
       "requiredStrength" => 80,
       "requiredAgility" => 70,
       "requiredIntelligence" => 10,
-      "requiredWisom" => 30
+      "requiredWisdom" => 30
     );
     $new_challenge = New $challenge($skills);
     break;
