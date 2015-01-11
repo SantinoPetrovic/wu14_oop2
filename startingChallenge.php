@@ -114,8 +114,12 @@ else{
 }
 
 unset($ds->current_challenge);
+$teamFight = false;
+
 $ds->current_challenge[] = $new_challenge;
 $ds->noMoreEquipments[] = &$noMoreEquipments;
+$ds->equipmentStatus[] = &$equipmentStatus;
+$ds->teamFight[] = &$teamFight;
     $arrayVariable = array(
       'new_challenge' => $new_challenge,
       'equipmentStatus' => $equipmentStatus,

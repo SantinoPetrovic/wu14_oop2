@@ -156,7 +156,6 @@ function array_random($arr, $num = 1) {
     }
     return $num == 1 ? $r[0] : $r;
 }
-
 // Challenge counter, if challenge counter reaches 10 the game will ended.
 $challengeCount = 0;
 

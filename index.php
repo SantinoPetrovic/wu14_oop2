@@ -56,17 +56,11 @@
 
         <div class="carryOutChallengeInfo">
             <button class="soloChallenge">
-                <label>
-                    <input type="radio" id="carryOutChallenge" name="carryChallenge">
                     <img src="imgs/carryOutChallenge.png">
-                </label>
             </button>
 
         <button class="teamChallenge">
-            <label>
-                <input type="radio" id="carryOutChallengeWithPartner" name="carryChallenge">
                 <img src="imgs/carryOutChallengeWithPartner.png">
-            </label>
         </button> <br>
         </div>
 
@@ -84,6 +78,7 @@
         </div>
 
         <div class="gettingEquipment">
+            <h1 class="status"></h1>
             <img src="imgs/axe.png" id="Axe" class="equipment">
             <img src="imgs/mysticGlove.png" id="MysticGlove" class="equipment">
             <img src="imgs/staff.png" id="Staff" class="equipment">
@@ -93,7 +88,10 @@
         </div>
 
         <div class="theGame">
-
+             <h1 class="player"><span class="charName"></span> (<span class="character"></span>) Scores: </h1><br>
+             <h1 class="cpu1"><span class="computerName1"></span> (<span class="computerCharacter1"></span>) Scores: </h1><br>
+             <h1 class="cpu2"><span class="computerName2"></span> (<span class="computerCharacter2"></span>) Scores: </h1><br>
+             <h1 class="team">Your team's score: </h1>
         </div>
 <!--         <p class="lose"> Sorry man, It's the game, you lose. :(</p> -->
     </header>

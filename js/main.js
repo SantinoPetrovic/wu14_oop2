@@ -1,6 +1,5 @@
 $(function(){
     $(".startGame").click(function() {
-        $(".startGame").hide();
 
         //Value from which image's checked.
         var character = $("input[name='character']:checked").val();
@@ -22,17 +21,21 @@ $(function(){
                 type: "POST",
                 data: {characterData : characterData},
                 dataType: "json",
-                //processData: true,
 
                 success: function (data, textStatus, jqXHR ) {
                     //This is for showing all the values on screen so you know what is happening.
-                    $(".personDataInfo .character").html(character);
-                    $(".personDataInfo .charName").html(charName);
-                    $(".computerDataInfo .computerName1").html(data.computerName1);
-                    $(".computerDataInfo .computerName2").html(data.computerName2);
-                    $(".computerDataInfo .computerCharacter1").html(data.computerCharacter1);
-                    $(".computerDataInfo .computerCharacter2").html(data.computerCharacter2);
-
+                    $(".character").html(character);
+                    $(".charName").html(charName);
+                    $(".computerName1").html(data.computerName1);
+                    $(".computerName2").html(data.computerName2);
+                    $(".computerCharacter1").html(data.computerCharacter1);
+                    $(".computerCharacter2").html(data.computerCharacter2);
+                    $(".player .character").html(character);
+                    $(".player .charName").html(charName);
+                    $(".cpu1 .computerName1").html(data.computerName1);
+                    $(".cpu2 .computerName2").html(data.computerName2);
+                    $(".cpu1 .computerCharacter1").html(data.computerCharacter1);
+                    $(".cpu2 .computerCharacter2").html(data.computerCharacter2);
                     console.log("data ", data);
                     console.log("Request: " + textStatus);
                     console.log(jqXHR);
@@ -85,7 +88,7 @@ $(function(){
                 type: "POST",
                 dataType: "json",
                 success: function (data, textStatus, jqXHR ) {
-                    $(".challengeInfo").hide();
+                    $(".challenge").hide();
                     console.log("success data: ", data);
                     $("#" + data.challenge).show();
                 },
@@ -110,8 +113,8 @@ $(function(){
                     console.log(data.playerEquipment);
                     $(".challengeInfo").hide();
                     $(".gettingEquipment").show();
-                    // $(".gettingEquipment").html(data.equipmentStatus);
-                    $("#" + data.playerEquipment).show();
+                    $(".gettingEquipment #" + data.playerEquipment).show();
+                    $(".gettingEquipment .status").html(data.equipmentStatus);
                 },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -126,25 +129,24 @@ $(function(){
 
         //Gain a value when choosing if you want a partner or not.
         $(".soloChallenge").click(function(){
-            var carryChallenge = $("input[name='carryChallenge']:checked").val();
-            $.ajax({
-                url: "startingChallenge.php",
-                type: "POST",
-                // data: {},
-                dataType: "json",
-                success: function (data, textStatus, jqXHR ) {
-                    console.log("success data: ", data);
-                    $(".carryOutChallengeInfo").hide();
-                    $(".gettingEquipment").show();
-                },
+            $(".carryOutChallengeInfo").hide();
+            $(".theGame").show();
+            // $.ajax({
+            //     url: "startingChallenge.php",
+            //     type: "POST",
+            //     // data: {},
+            //     dataType: "json",
+            //     success: function (data, textStatus, jqXHR ) {
+            //         console.log("success data: ", data);
+            //     },
 
-                error: function(jqXHR, textStatus, errorThrown, data) {
-                    console.log("error data: ", data);
-                    console.log(jqXHR);
-                    console.log("Request failed: " + textStatus);
-                    console.log("Request failed: " + errorThrown);
-                }
-            });
+            //     error: function(jqXHR, textStatus, errorThrown, data) {
+            //         console.log("error data: ", data);
+            //         console.log(jqXHR);
+            //         console.log("Request failed: " + textStatus);
+            //         console.log("Request failed: " + errorThrown);
+            //     }
+            // });
 
         });
 
@@ -158,6 +160,7 @@ $(function(){
             var teamJson = {
                 "teamData" : teamData
             }
+            console.log(teamJson);
             $.ajax({
                 url: "team.php",
                 type: "POST",
@@ -166,7 +169,11 @@ $(function(){
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);
                     $(".carryChallengeWithCpu").hide();
-                    $(".gettingEquipment").show();
+                    $(".theGame").show();
+                    $(".theGame .player").hide();
+                    $(".theGame .cpu1").hide();
+                    $(".theGame .team").show();
+
                 },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -183,6 +190,7 @@ $(function(){
             var teamJson = {
                 "teamData" : teamData
             }
+            console.log(teamJson);
             $.ajax({
                 url: "team.php",
                 type: "POST",
@@ -191,6 +199,10 @@ $(function(){
                 success: function (data, textStatus, jqXHR ) {
                     console.log("success data: ", data);
                     $(".carryChallengeWithCpu").hide();
+                    $(".theGame").show();
+                    $(".theGame .player").hide();
+                    $(".theGame .cpu2").hide();
+                    $(".theGame .team").show();
                 },
 
                 error: function(jqXHR, textStatus, errorThrown, data) {
@@ -206,22 +218,34 @@ $(function(){
         // $(".theGame").show();
         $(".carryOutChallengeInfo").show();
     });
-    $(".resetButton").click(function(){
-        $.ajax({
-            url: "reset.php",
-            type: "POST",
-            // data: {},
-            dataType: "json",
-            success: function (data, textStatus, jqXHR ) {
-                console.log("success data: ", data);
-                },
+    // function startOver() {
+        $(".resetButton").click(function(){
+            $.ajax({
+                url: "reset.php",
+                type: "POST",
+                // data: {startOver: 1},
+                success: function (data, textStatus, jqXHR ) {
+                    console.log("success data: ", data);
+                    $(".carryChallengeWithCpu").hide();
+                    $(".carryOutChallengeInfo").hide();
+                    $(".gettingEquipment").hide();
+                    $(".equipment").hide();
+                    $(".challengeInfo").hide();
+                    $(".challenge").hide();
+                    $(".characterSelection").show();
+                    $(".theGame").hide();
+                    $(".player").show();
+                    $(".cpu1").show();
+                    $(".cpu2").show();
+                    },
 
-            error: function(jqXHR, textStatus, errorThrown, data) {
-                console.log("error data: ", data);
-                console.log(jqXHR);
-                console.log("Request failed: " + textStatus);
-                console.log("Request failed: " + errorThrown);
-            }
+                error: function(jqXHR, textStatus, errorThrown, data) {
+                    console.log("error data: ", data);
+                    console.log(jqXHR);
+                    console.log("Request failed: " + textStatus);
+                    console.log("Request failed: " + errorThrown);
+                }
+            });
         });
-    });
+    // }
 });

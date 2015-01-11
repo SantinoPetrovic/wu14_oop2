@@ -33,11 +33,15 @@ $teamStrength = $cpuChallengeTeammate->strength + $player->strength;
 $teamAgility = $cpuChallengeTeammate->agility + $player->agility;
 $teamIntelligence = $cpuChallengeTeammate->intelligence + $player->intelligence;
 $teamWisdom = $cpuChallengeTeammate->wisdom + $player->wisdom;
+$ds->teamFight[0] = true;
+// var_dump($ds->teamFight[0]);
 
 $ds->teamStrength[] = &$teamStrength;
 $ds->teamAgility[] = &$teamAgility;
 $ds->teamIntelligence[] = &$teamIntelligence;
 $ds->teamWisdom[] = &$teamWisdom;
+$ds->cpuChallengeTeammate[] = &$cpuChallengeTeammate;
+echo(json_encode(true));
 /*
   public function __construct($name, $human, $computer) {
     $this->members[] = $human;
