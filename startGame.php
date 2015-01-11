@@ -14,7 +14,7 @@ $ds = new DBObjectSaver(array(
     "host" => "127.0.0.1",
     "dbname" => "wu14oop2",
     "username" => "root",
-    "password" => "188830",
+    "password" => "mysql",
     "prefix" => "characters_trial"
 ));
 

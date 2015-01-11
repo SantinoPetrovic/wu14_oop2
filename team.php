@@ -11,7 +11,7 @@ $ds = new DBObjectSaver(array(
     "host" => "127.0.0.1",
     "dbname" => "wu14oop2",
     "username" => "root",
-    "password" => "188830",
+    "password" => "mysql",
     "prefix" => "characters_trial"
 ));
 
@@ -50,11 +50,11 @@ $team = array(
 "wisdom" => 0
 );
 
-$team['strength'] = $cpuChallengeTeammate->strength;
+$team['strength'] = $cpuChallengeTeammate->strength + $player->strength + $cpuChallengeTeammate->cpuEquipment->weaponStrength + $player->$playerEquipment->weaponStrength;
 $team['agility'] = $cpuChallengeTeammate->agility + $player->agility + $cpuChallengeTeammate->cpuEquipment->weaponAgility + $player->$playerEquipment->weaponAgility;
 $team['intelligence'] = $cpuChallengeTeammate->intelligence + $player->intelligence + $cpuChallengeTeammate->cpuEquipment->weaponIntelligence + $player->$playerEquipment->weaponIntelligence;
 $team['wisdom'] = $cpuChallengeTeammate->wisdom + $player->wisdom + $cpuChallengeTeammate->cpuEquipment->weaponWisdom + $player->$playerEquipment->weaponWisdom;
-var_dump($team);
+// var_dump($team);
 
 // var_dump($ds->teamFight[0]);
 
